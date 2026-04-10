@@ -66,6 +66,7 @@ const autonomy = require('./memory/autonomy.manager');
 const executor = require('./memory/autonomy.executor');
 const human = require('./memory/humanizer');
 const thinker = require('./memory/thinker');
+const { generarPlan } = require("./modules/planner");
 
 // ================= DETECTOR =================
 function detectarTipoApp(idea) {
@@ -222,6 +223,13 @@ ${pensamiento.join("\n")}
 
 ${respuesta}
 `;
+   
+// 🧠 PLAN INTELIGENTE (NUEVO)
+const plan = generarPlan(texto);
+
+if (plan) {
+  respuesta += `\n\n${plan}`;
+}
 
   // 🧠 humanizar
   respuesta = human.humanizarRespuesta(texto, respuesta);
