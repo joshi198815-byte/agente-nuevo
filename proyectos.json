@@ -1,0 +1,44 @@
+{
+  "uber": {
+    "idea": "app envío tipo uber",
+    "plan": "",
+    "aprobado": false,
+    "pantallas": []
+  },
+  "app1": {
+    "idea": "app tipo uber",
+    "plan": "",
+    "aprobado": true,
+    "pantallas": []
+  },
+  "uber auto app tipo uber": {
+    "idea": "",
+    "plan": "",
+    "aprobado": false,
+    "pantallas": []
+  },
+  "uber home": {
+    "idea": "",
+    "plan": "",
+    "aprobado": false,
+    "pantallas": []
+  },
+  "uber mapa": {
+    "idea": "",
+    "plan": "",
+    "aprobado": false,
+    "pantallas": []
+  },
+  "uber perfil": {
+    "idea": "",
+    "plan": "",
+    "aprobado": false,
+    "pantallas": []
+  },
+  "proyecto_1775857072061": {
+    "idea": "merecido almuerzo",
+    "plan": "",
+    "aprobado": false,
+    "pantallas": []
+  }
+}

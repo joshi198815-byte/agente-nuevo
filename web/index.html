@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NEXUS AI</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    #chat {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .msg {
+      max-width: 70%;
+      padding: 12px;
+      border-radius: 10px;
+      margin: 10px 0;
+      white-space: pre-wrap;
+    }
+
+    .user {
+      background: #2563eb;
+      margin-left: auto;
+    }
+
+    .bot {
+      background: #1e293b;
+    }
+
+    #inputArea {
+      display: flex;
+      padding: 10px;
+      background: #020617;
+    }
+
+    input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    button {
+      margin-left: 10px;
+      padding: 12px;
+      background: #22c55e;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+
+    #loading {
+      font-style: italic;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="chat"></div>
+
+<div id="inputArea">
+  <input id="input" placeholder="Escribe tu idea..." />
+  <button onclick="enviar()">Enviar</button>
+</div>
+
+<script>
+
+let userId = "web-user";
+
+async function enviar() {
+
+  const input = document.getElementById("input");
+  const mensaje = input.value;
+
+  if (!mensaje) return;
+
+  agregarMensaje(mensaje, "user");
+
+  input.value = "";
+
+  mostrarLoading();
+
+  const res = await fetch("/chat", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ mensaje, userId })
+  });
+
+  const data = await res.json();
+
+  quitarLoading();
+
+  agregarMensaje(data.respuesta, "bot");
+
+  scrollAbajo();
+}
+
+function agregarMensaje(texto, tipo) {
+  const chat = document.getElementById("chat");
+
+  const div = document.createElement("div");
+  div.className = "msg " + tipo;
+  div.innerText = texto;
+
+  chat.appendChild(div);
+}
+
+function mostrarLoading() {
+  const chat = document.getElementById("chat");
+
+  const div = document.createElement("div");
+  div.id = "loading";
+  div.innerText = "NEXUS está pensando...";
+
+  chat.appendChild(div);
+}
+
+function quitarLoading() {
+  const loading = document.getElementById("loading");
+  if (loading) loading.remove();
+}
+
+function scrollAbajo() {
+  const chat = document.getElementById("chat");
+  chat.scrollTop = chat.scrollHeight;
+}
+
+</script>
+
+</body>
+</html>

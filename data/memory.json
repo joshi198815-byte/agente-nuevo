@@ -1,0 +1,91 @@
+{
+  "users": {
+    "default": {
+      "history": [
+        {
+          "input": "proyecto app1",
+          "output": "📁 Proyecto activo: app1",
+          "date": "2026-04-09T16:07:38.378Z"
+        },
+        {
+          "input": "proyecto uber",
+          "output": "📁 Proyecto activo: uber",
+          "date": "2026-04-09T16:08:37.324Z"
+        },
+        {
+          "input": "proyecto uber auto app tipo uber",
+          "output": "📁 Proyecto activo: uber auto app tipo uber",
+          "date": "2026-04-09T16:09:12.091Z"
+        },
+        {
+          "input": "proyecto uber home",
+          "output": "📁 Proyecto activo: uber home",
+          "date": "2026-04-09T16:09:39.576Z"
+        },
+        {
+          "input": "proyecto uber mapa",
+          "output": "📁 Proyecto activo: uber mapa",
+          "date": "2026-04-09T16:10:17.158Z"
+        },
+        {
+          "input": "proyecto uber perfil",
+          "output": "📁 Proyecto activo: uber perfil",
+          "date": "2026-04-09T16:10:46.977Z"
+        },
+        {
+          "input": "proyecto app1",
+          "output": "📁 Proyecto activo: app1",
+          "date": "2026-04-09T16:20:17.275Z"
+        },
+        {
+          "input": "auto app tipo uber",
+          "output": "🤖 App generada automáticamente (tipo: uber)",
+          "date": "2026-04-09T16:20:41.637Z"
+        },
+        {
+          "input": "home",
+          "output": "📱 Pantalla creada: home",
+          "date": "2026-04-09T16:21:18.948Z"
+        },
+        {
+          "input": "mapa",
+          "output": "📱 Pantalla creada: mapa",
+          "date": "2026-04-09T16:21:45.961Z"
+        }
+      ],
+      "preferences": {},
+      "projects": []
+    },
+    "50230972335@c.us": {
+      "history": [
+        {
+          "input": "quiero un app tipo uber",
+          "output": "❗ Usa: proyecto nombre",
+          "date": "2026-04-09T17:20:28.319Z"
+        },
+        {
+          "input": "quiero que me planifiques la app con todo lo que tiene que llevar",
+          "output": "❗ Usa: proyecto nombre",
+          "date": "2026-04-09T17:21:21.829Z"
+        },
+        {
+          "input": "vendo q150",
+          "output": "❗ Usa: proyecto nombre",
+          "date": "2026-04-09T17:25:06.780Z"
+        },
+        {
+          "input": "merecido almuerzo",
+          "output": "👨‍💻 Soy NEXUS.\n\nEntendí lo que me dijiste:\n\"merecido almuerzo\"\n\n👉 Esto es lo que hice o pensé:\n\n\n🧠 Pensé esto:\n\n\nCuéntame más detalles de la app que quieres y la construimos juntos.\n\n\nSi quieres, puedo mejorarlo, hacerlo más profesional o agregar funciones específicas.",
+          "date": "2026-04-10T21:37:52.064Z"
+        },
+        {
+          "input": "disculpa ya no me diste respuesta de la computadora",
+          "output": "👨‍💻 Soy NEXUS.\n\nEntendí lo que me dijiste:\n\"disculpa ya no me diste respuesta de la computadora\"\n\n👉 Esto es lo que hice o pensé:\n\n\n🧠 Pensé esto:\n\n\nCuéntame más detalles de la app que quieres y la construimos juntos.\n\n\nSi quieres, puedo mejorarlo, hacerlo más profesional o agregar funciones específicas.",
+          "date": "2026-04-10T21:40:32.488Z"
+        }
+      ],
+      "preferences": {},
+      "projects": []
+    }
+  }
+}
