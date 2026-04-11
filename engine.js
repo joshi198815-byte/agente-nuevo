@@ -67,6 +67,9 @@ const executor = require('./memory/autonomy.executor');
 const human = require('./memory/humanizer');
 const thinker = require('./memory/thinker');
 const { generarPlan } = require("./modules/planner");
+const { crearProyectoBase } = require("./modules/project.generator");
+const flutter = require("./modules/flutter.generator");
+const aiFlutter = require("./modules/ai.flutter.generator");
 
 // ================= DETECTOR =================
 function detectarTipoApp(idea) {
@@ -161,7 +164,10 @@ async function procesar(texto, userId = "default") {
     if (!proyecto.idea) {
       actualizarProyecto({ idea: texto });
     }
-
+      if (texto.includes("crear app")) {
+  const ruta = crearProyectoBase("app_" + Date.now());
+  respuesta = "📁 Proyecto creado en: " + ruta;
+   }
     // ROLLBACK
     if (texto.startsWith("rollback")) {
       const proyectoNombre = proyecto.nombre || "default";
@@ -209,6 +215,70 @@ async function procesar(texto, userId = "default") {
       const logs = await executor.ejecutarPlan(plan, contexto);
 
       respuesta = logs.join("\n");
+
+      // 🔥 GENERACIÓN REAL DE PANTALLAS
+if (proyecto && proyecto.path) {
+
+  if (texto.includes("login")) {
+    const ruta = flutter.crearPantalla(
+      "login_screen",
+      flutter.generarLoginScreen(),
+      proyecto.path
+    );
+    logs.push("📱 Login creado: " + ruta);
+  }
+
+  if (texto.includes("home")) {
+    const ruta = flutter.crearPantalla(
+      "home_screen",
+      flutter.generarHomeScreen(),
+      proyecto.path
+    );
+    logs.push("📱 Home creado: " + ruta);
+  }
+
+  if (texto.includes("mapa") || texto.includes("uber")) {
+    const ruta = flutter.crearPantalla(
+      "mapa_screen",
+      flutter.generarMapaScreen(),
+      proyecto.path
+    );
+    logs.push("🗺️ Mapa creado: " + ruta);
+  }
+    // 🔥 IA GENERA CÓDIGO REAL
+if (proyecto && proyecto.path) {
+
+  const idea = proyecto.idea || texto;
+
+  if (texto.includes("login")) {
+    const ruta = await aiFlutter.generarPantallaIA(
+      "login_screen",
+      idea,
+      proyecto.path
+    );
+    logs.push("🔥 IA creó login profesional: " + ruta);
+  }
+
+  if (texto.includes("home")) {
+    const ruta = await aiFlutter.generarPantallaIA(
+      "home_screen",
+      idea,
+      proyecto.path
+    );
+    logs.push("🔥 IA creó home profesional: " + ruta);
+  }
+
+  if (texto.includes("mapa") || texto.includes("uber")) {
+    const ruta = await aiFlutter.generarPantallaIA(
+      "mapa_screen",
+      idea,
+      proyecto.path
+    );
+    logs.push("🔥 IA creó mapa profesional: " + ruta);
+  }
+
+ 
+}
     }
 
     else {
